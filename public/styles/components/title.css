@@ -1,0 +1,5 @@
+.title {
+  text-align: center;
+  letter-spacing: var(--space-1);
+  font-size: var(--xl-fs);
+}

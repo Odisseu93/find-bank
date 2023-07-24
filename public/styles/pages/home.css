@@ -1,0 +1,9 @@
+@import url('../variables/index.css');
+
+.main {
+  background-color:var(--secondary-color);
+
+  min-height: 100vh;
+
+  padding: 1rem;
+}

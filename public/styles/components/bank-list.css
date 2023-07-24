@@ -1,0 +1,47 @@
+.bank-list {
+  background-color: #EEEDED;
+
+  display: flex;
+  flex-flow: column;
+  justify-content: center;
+
+  width: clamp(320px, 70%, 1099px);
+  height: clamp(26.25rem, 80%, 70vh);
+  
+  margin-inline: auto ;
+  margin-top: var(--space-between-elements-desktop);
+  border-radius: var(--space-1);
+  padding: var(--space-1);
+  
+  text-align: center;
+  line-height: var(--default-leading);
+
+  list-style: none;
+  box-shadow:var(--medium-shadow);
+}
+
+@media(max-width: 768px ) {
+  .bank-list { 
+    margin-top: var(--space-between-elements-mobile);
+    
+    line-height: var(--lg-leading);
+  }
+}
+
+.bank-list__item {
+  font-size: var(--default-fs);
+  
+  cursor: pointer;
+}
+
+.bank-list__item:hover {
+  color: #7A3E3E;
+
+  text-decoration: underline;
+}
+
+.bank-list__item:active {
+  color: #482121;
+
+  text-decoration: underline;
+}

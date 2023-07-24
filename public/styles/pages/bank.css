@@ -1,0 +1,73 @@
+.main {
+  background-color:var(--secondary-color);
+
+  display: flex;
+  flex-direction: column;
+  gap: 5rem;
+
+  min-height: 100vh;
+
+  padding: 1rem;
+}
+
+.bank {
+  background-color: #FDFFAE;
+
+  max-width: max-content;
+
+  align-self: center;
+  margin-inline: auto;
+
+  padding: var(--space-2);
+  border-radius: var(--space-1);
+
+  
+  
+  box-shadow: var(--medium-shadow);
+}
+
+.bank P {
+  font-size: var(--default-fs);
+}
+
+.bank__fullname,
+.bank__code,
+.bank__ispb {
+  color: #08085E;
+  font-size: var(--default-fs);
+  
+}
+
+.bank__fullname {
+  text-align: center;
+}
+
+
+.back-button {
+  width: max-content;
+
+  margin-top: var(--space-between-elements);
+  margin-inline: auto;
+  padding: var(--space-1);
+  border: none;
+  border-radius: var(--space-1);
+
+  font-size: var(--lg-fs);
+  font-weight: var(--medium-fw);
+
+  box-shadow: var(--medium-shadow);
+  cursor: pointer;
+}
+
+.back-button:hover {
+  color: var(--green-neon-color);
+}
+
+.back-button:active {
+  color: var(--green-neon-color);
+  box-shadow: var(--acitive-pagination-buttons-shadow);
+}
+
+.bank small {
+  font-size: var(--base-fs);
+}
