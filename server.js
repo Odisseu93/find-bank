@@ -19,10 +19,10 @@ app.use(
 app.use(express.json())
 
 
-const apiGetAllBanks = require('./banks/getAllBanks')
+const apiGetAllBanks = require('./banks/services/getAllBanks')
 app.use('/bank/api', apiGetAllBanks)
 
-const apiGetBankByCode = require('./banks/getBankByCode')
+const apiGetBankByCode = require('./banks/services/getBankByCode')
 app.use('/bank/api', apiGetBankByCode)
 
 const bank = require('./banks')
