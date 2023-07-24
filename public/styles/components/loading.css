@@ -1,0 +1,105 @@
+
+@keyframes coin {
+  0% {
+    transform: rotate(0);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes dot-one{
+  0%{
+    opacity: 0;
+  }
+  15%{
+    opacity: 0;
+  }
+  25%{
+    opacity: 1;
+  }
+  100%{
+    opacity: 1;
+  }
+}
+
+@keyframes dot-two{
+  0%{
+    opacity: 0;
+  }
+  25%{
+    opacity: 0;
+  }
+  50%{
+    opacity: 1;
+  }
+  100%{
+    opacity: 1;
+  }
+}
+
+@keyframes dot-three{
+  0%{
+    opacity: 0;
+  }
+  50%{
+    opacity: 0;
+  }
+  75%{
+    opacity: 1;
+  }
+  100%{
+    opacity: 1;
+  }
+}
+
+.loading-container{
+  background-color: var(--secondary-color);
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  
+  position: absolute;
+  top: 0;
+  left: 0;
+
+  width: 100vw;
+  height: 100vh;
+}
+
+
+.loading-container__coin{
+  display: block;
+
+  width: 20vw;
+  height: 10vh;
+
+  background-image: url('../../assets/images/coin.svg');
+  background-repeat: no-repeat;
+  background-size:auto ;
+
+  animation: coin 8s cubic-bezier(0.165, 0.84, 0.44, 1) infinite;
+}
+
+.loading-container__message,
+.loading-container__message span 
+{font-size: var(--xl-fs);}
+
+.loading-container__message{
+  font-family: 'Roboto', sans-serif;
+  font-weight: 700;
+}
+span[class^="dot-"]{
+  opacity: 0;
+}
+.dot-one{
+  animation: dot-one 2s infinite linear
+}
+.dot-two{
+  animation: dot-two 2s infinite linear
+}
+.dot-three{
+  animation: dot-three 2s infinite linear
+}

@@ -1,5 +1,5 @@
 /* eslint-disable no-undef */
-import { H1, Ul, Li, PrevButton, NextButton } from '../components/index.js'
+import { Loading ,H1, Ul, Li, PrevButton, NextButton } from '../components/index.js'
 
 import updateElement from '../helpers/updateRootHTML.js'
 
@@ -18,7 +18,7 @@ updateElement(
 	root,
 	[
 		H1('Find bank - encontre informações do seu banco!'),
-		Ul('<div></div>'),
+		Ul(Loading()),
 		`<div class="pagination-container" id="pagination">
 			${PrevButton()}
 			${NextButton()}

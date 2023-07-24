@@ -1,5 +1,5 @@
 /* eslint-disable no-undef */
-import { H1 } from '../components/index.js'
+import {Loading , H1 } from '../components/index.js'
 
 import { apiGetBankByCode } from '../services/getBankByCode.js'
 
@@ -12,6 +12,8 @@ const title = document.createElement('title')
 document.head.appendChild(title)
 
 const root = document.querySelector('#root')
+
+updateElement(root, Loading())
 
 apiGetBankByCode(bankCode).then(({ ispb, name, code, fullName }) => {
 	title.textContent = `Banco ${name}`
