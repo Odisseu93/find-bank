@@ -1,0 +1,30 @@
+.search-container {
+  width: clamp(320px, 90%, 270px);
+
+  margin-top: var(--space-between-elements-desktop);
+  margin-inline: auto;
+  padding: 0.25rem;
+}
+
+.search-container__input {
+  width: 100%;
+
+  padding: var(--space-1);
+  border: none;
+  border-radius: var(--space-1);
+
+
+  font-size: 1.25rem;
+  box-shadow: var(--medium-shadow);
+}
+
+@media (max-width: 768px) {
+  .search-container {
+    margin-block: calc(var(--space-between-elements-mobile) * 3);
+  }
+
+  .search-container__input {
+    height: calc(var(--space-2) * 5);
+  }
+
+}

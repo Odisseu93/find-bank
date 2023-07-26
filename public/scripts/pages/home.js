@@ -1,14 +1,18 @@
 /* eslint-disable no-undef */
-import { Loading ,H1, Ul, Li, PrevButton, NextButton } from '../components/index.js'
+import { Loading , H1, SearchInput, Ul, Li, PrevButton, NextButton } from '../components/index.js'
 
 import updateElement from '../helpers/updateRootHTML.js'
 
 import { apiGetllAllBanks } from '../services/getllAllBanks.js'
+
 import { ss } from '../utils/sessionStorage.js'
 import { haveDataInSessionStorage } from '../helpers/Validation.js'
+import usefilter from '../helpers/filter.js'
 
 // eslint-disable-next-line no-undef
 const root = document.querySelector('#root')
+
+let filter = ''
 
 const totalItemsPerPage = 20
 let currentPage = 1
@@ -18,6 +22,7 @@ updateElement(
 	root,
 	[
 		H1('Find bank - encontre informações do seu banco!'),
+		SearchInput(),
 		Ul(Loading()),
 		`<div class="pagination-container" id="pagination">
 			${PrevButton()}
@@ -39,8 +44,9 @@ const getAllBanks = () =>
 const BankList = () => {
 	if (haveDataInSessionStorage('bankListJson')) {
 		const data = ss.get('bankListJson')
+		const FilteredBanks = usefilter(data, filter)
 
-		const totalPages = Math.ceil(data.length / totalItemsPerPage)
+		const totalPages = Math.ceil(FilteredBanks.length / totalItemsPerPage)
 		const start = currentPage > 1 ? (currentPage - 1) * totalItemsPerPage : 0
 		const end = start + totalItemsPerPage
 
@@ -54,7 +60,7 @@ const BankList = () => {
 				? `Ir para a página ${currentPage + 1}`
 				: 'Você está na última página.'
 
-		const content = data
+		const content = FilteredBanks
 			.filter((bank) => bank.name && bank.code)
 			.slice(start, end)
 			.map(
@@ -62,17 +68,24 @@ const BankList = () => {
 					bank.code && bank.name && Li({ id: bank.code, texContet: `<a href="bank/${bank.code}" >${bank.name}</a>` })
 			)
 			.join('\n')
-		console.log(content)
 		updateElement(ul, content)
 	}
 }
 
 getAllBanks()
 
+document.querySelector('#SearchInput').onsearch = e => {
+	filter = e.target.value
+	BankList()
+
+}
+
 document.querySelector('#nextButton').onclick = () => {
-	BankList(currentPage++)
+	currentPage++
+	BankList()
 }
 
 document.querySelector('#prevButton').onclick = () => {
-	BankList(currentPage > 1 ? currentPage-- : 1)
+	currentPage > 1 ? currentPage-- : 1
+	BankList()
 }
