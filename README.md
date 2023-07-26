@@ -28,19 +28,22 @@ o projeto foi feito utilizando:
 
 ``` git clone https://github.com/Odisseu93/find-bank```
 
-**acesse a sua pasta**
+**Acesse a sua pasta**
 
 ```cd find-bank```
 
-**instale todas as suas dependencias**
+**Instale todas as suas dependencias**
 
 ```yarn add``` ou ```npm install```
 
-** rode os servidor **
+**Rode o servidor**
 
 ```yarn dev``` ou ```npm run dev```
 
-### Author
+**Acesse o endereço localhost**
+```http://localhost:5000```
+
+### Autor
 
 - [@Odisseu93 - Ulisses Silvério](https://github.com/Odisseu93/)
 
