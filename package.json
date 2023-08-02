@@ -2,7 +2,7 @@
   "name": "tarefa",
   "version": "1.0.0",
   "main": "index.js",
-  "type": "commonjs",
+  "type": "module",
   "author": "@Odisseu93 - Ulisses Silvério <ulissessuporteti01@gmail.com> (https://github.com/odisseu93)",
   "license": "MIT",
   "scripts": {
