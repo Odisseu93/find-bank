@@ -7,8 +7,7 @@ const path = require('node:path')
 
 const basePath = path.join(__dirname, 'templates')
 
-app.use(express.static('public'))
-
+app.use(express.static(`${__dirname}/../public`))
 
 app.use(
 	express.urlencoded({
