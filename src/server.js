@@ -1,9 +1,18 @@
-const express = require('express')
+import express from 'express'
+
+import { fileURLToPath } from 'url'
+import path, {dirname } from 'node:path'
+
+import bank from './banks/index.js'
+import apiGetAllBanks from './banks/services/getAllBanks.js'
+import apiGetBankByCode from './banks/services/getBankByCode.js'
+
+const __filename = fileURLToPath(import.meta.url)
+const __dirname = dirname(__filename)
+
 const app = express()
 
 const port = 5000
-
-const path = require('node:path')
 
 const basePath = path.join(__dirname, 'templates')
 
@@ -18,13 +27,10 @@ app.use(
 app.use(express.json())
 
 
-const apiGetAllBanks = require('./banks/services/getAllBanks')
 app.use('/bank/api', apiGetAllBanks)
 
-const apiGetBankByCode = require('./banks/services/getBankByCode')
 app.use('/bank/api', apiGetBankByCode)
 
-const bank = require('./banks')
 app.use('/bank', bank)
 
 app.get('/', (req, res) => {

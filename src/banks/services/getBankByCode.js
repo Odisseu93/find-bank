@@ -1,4 +1,4 @@
-const express = require('express')
+import express from 'express'
 const router = express.Router()
 
 const getBankByCode = async (code) => {
@@ -15,4 +15,4 @@ router.get('/:code', (req, res) => {
 	console.log(`Banco ${code}`)
 })
 
-module.exports = router
+export default router  

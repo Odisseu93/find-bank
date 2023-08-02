@@ -1,7 +1,14 @@
-const express = require('express')
+import express from 'express'
+
+import { fileURLToPath } from 'url'
+import path, { dirname } from 'node:path'
+
+const __filename = fileURLToPath(import.meta.url)
+const __dirname = dirname(__filename)
+
 const router = express.Router()
 
-const path = require('path')
+
 
 const basePath = path.join(__dirname, '../templates')
 
@@ -13,4 +20,4 @@ router.get('/:code', (req, res) => {
 	res.sendFile(`${basePath}/bank.html`)
 })
 
-module.exports = router
+export default router
