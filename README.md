@@ -34,7 +34,7 @@ o projeto foi feito utilizando:
 
 **Instale todas as suas dependencias**
 
-```yarn add``` ou ```npm install```
+```yarn install``` ou ```npm install```
 
 **Rode o servidor**
 
