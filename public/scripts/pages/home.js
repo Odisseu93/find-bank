@@ -1,5 +1,5 @@
 /* eslint-disable no-undef */
-import { Loading , H1, SearchInput, Ul, Li, PrevButton, NextButton } from '../components/index.js'
+import { Loading, H1, Form, SearchInput, Ul, Li, ButtonSubmit, PrevButton, NextButton } from '../components/index.js'
 
 import updateElement from '../helpers/updateRootHTML.js'
 
@@ -22,7 +22,12 @@ updateElement(
 	root,
 	[
 		H1('Find bank - encontre informações do seu banco!'),
-		SearchInput(),
+		Form(
+			[
+				SearchInput(),
+				ButtonSubmit('Procurar Banco'),
+			].join('\n')
+		),
 		Ul(Loading()),
 		`<div class="pagination-container" id="pagination">
 			${PrevButton()}
@@ -74,10 +79,18 @@ const BankList = () => {
 
 getAllBanks()
 
-document.querySelector('#SearchInput').onsearch = e => {
-	filter = e.target.value
-	BankList()
+document.querySelector('#formBank').onsubmit = e => {
+	e.preventDefault()
 
+	filter = e.target.querySelector('#search').value
+
+	BankList()
+}
+
+document.querySelector('#search').oninput = e => {
+	if (e.target.value === '') filter = ''
+	
+	BankList()
 }
 
 document.querySelector('#nextButton').onclick = () => {

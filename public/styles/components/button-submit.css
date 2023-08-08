@@ -1,0 +1,37 @@
+.button-submit {
+  background-color: var(--primary-color);
+
+  display: block;
+
+  width: max-content;
+
+  margin-inline: auto;
+
+  margin-block: 2rem;
+  padding: var(--space-1);
+  border: none;
+  border-radius: var(--space-1);
+
+  color: var(--secondary-color);
+  font-size: var(--default-fs);
+  font-weight: var(--medium-fw);
+
+  box-shadow: var(--medium-shadow);
+  cursor: pointer;
+}
+
+@media (min-width: 768px) {
+
+  .button-submit:hover {
+    transform: scale(0.99);
+  }
+
+}
+
+.button-submit:active {
+
+  color: var(--green-neon-color);
+
+  box-shadow: var(--acitive-pagination-buttons-shadow);
+  cursor: pointer;
+}
